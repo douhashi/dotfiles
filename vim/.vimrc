@@ -11,10 +11,10 @@ set backspace=indent,eol,start
 
 " NeoBundle
 if filereadable(expand('$HOME/.vim/.vimrc.neobundle')) " ファイルが読み込み可能かチェック
-  source $HOME/dotfiles/.vimrc.neobundle " .vimrcファイル読み込み
+  source $HOME/.vim/.vimrc.neobundle " .vimrcファイル読み込み
 
   if filereadable(expand('$HOME/.vim/.vimrc.plugin'))
-    source $HOME/dotfiles/.vimrc.plugin
+    source $HOME/.vim/.vimrc.plugin
   endif
 endif
 
