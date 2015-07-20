@@ -1,0 +1,15 @@
+#!/bin/sh
+
+WORKING_DIR=`pwd`
+echo "Start install dotfiles..."
+
+echo "installing zsh dotfiles"
+ln -sf ~/.zshrc $WORKING_DIR/zsh/.zshrc
+ln -sf ~/.zsh $WORKING_DIR/zsh/.zsh
+
+echo "installing vim dotfiles"
+ln -sf ~/.vimrc $WORKING_DIR/vim/.vimrc
+ln -sf ~/.vim $WORKING_DIR/vim/.vim
+
+echo "installing tmux dotfiles"
+ln -sf ~/.tmux.conf $WORKING_DIR/tmux/.tmux.conf
