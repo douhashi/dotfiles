@@ -10,10 +10,10 @@ set noexpandtab
 set backspace=indent,eol,start
 
 " NeoBundle
-if filereadable(expand('$HOME/dotfiles/vim/.vimrc.neobundle')) " ファイルが読み込み可能かチェック
+if filereadable(expand('$HOME/.vim/.vimrc.neobundle')) " ファイルが読み込み可能かチェック
   source $HOME/dotfiles/.vimrc.neobundle " .vimrcファイル読み込み
 
-  if filereadable(expand('$HOME/dotfiles/vim/.vimrc.plugin'))
+  if filereadable(expand('$HOME/.vim/.vimrc.plugin'))
     source $HOME/dotfiles/.vimrc.plugin
   endif
 endif
