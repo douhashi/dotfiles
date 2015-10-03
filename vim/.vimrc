@@ -4,9 +4,9 @@ set title
 set ruler
 set autoindent
 set smartindent
-set tabstop=4
-set shiftwidth=4
-set noexpandtab
+set tabstop=2
+set shiftwidth=2
+set expandtab
 set backspace=indent,eol,start
 set encoding=utf-8
 
@@ -26,12 +26,22 @@ colorscheme jellybeans
 
 " Unite
 let g:unite_enable_start_insert=1
-noremap <C-P> :Unite buffer<CR>
-noremap <C-N> :Unite -buffer-name=file file<CR>
-noremap <C-Z> :Unite file_mru<CR>
+let g:unite_source_history_yank_enable =1
+let g:unite_source_file_mru_limit = 200
+nnoremap <silent> ,uy :<C-u>Unite history/yank<CR>
+nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
+nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
+nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
+"noremap <C-P> :Unite buffer<CR>
+"noremap <C-N> :Unite -buffer-name=file file<CR>
+"noremap <C-Z> :Unite file_mru<CR>
 
 " statusline
 set laststatus=2
 if filereadable(expand('$HOME/.vim/.vimrc.lightline'))
   source $HOME/.vim/.vimrc.lightline
 end
+
+" NERDTree
+nnoremap <silent><C-e> :NERDTreeToggle<CR>

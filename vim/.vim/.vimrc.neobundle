@@ -24,6 +24,7 @@ NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'airblade/vim-gitgutter'
+NeoBundle 'scrooloose/nerdtree'
 
 NeoBundleCheck
 call neobundle#end()

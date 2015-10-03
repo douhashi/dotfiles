@@ -130,8 +130,8 @@ bindkey "^N" history-beginning-search-forward-end
 # load mintty configuration
 [ -f ~/.zsh/.zshrc.mintty ] && source ~/.zsh/.zshrc.mintty
 
-export PATH=/usr/local/bin:$PATH
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+export NETMOVE_BDK=BB3333BB11BB3333BB11BB3333BB11BB
