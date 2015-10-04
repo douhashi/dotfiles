@@ -44,4 +44,17 @@ if filereadable(expand('$HOME/.vim/.vimrc.lightline'))
 end
 
 " NERDTree
-nnoremap <silent><C-e> :NERDTreeToggle<CR>
+nnoremap <silent><C-e> :NERDTreeTabsToggle<CR>
+let NERDTreeQuitOnOpen=1
+
+" Split Window
+nnoremap <silent><C-s>s :split<CR>
+nnoremap <silent><C-s><C-s> :split<CR>
+nnoremap <silent><C-s>v :vsplit<CR>
+nnoremap <silent><C-h> <C-w>h<CR>
+nnoremap <silent><C-j> <C-w>j<CR>
+nnoremap <silent><C-k> <C-w>k<CR>
+nnoremap <silent><C-l> <C-w>l<CR>
+
+" Buffer
+nnoremap <silent><Space> :bn<CR>
