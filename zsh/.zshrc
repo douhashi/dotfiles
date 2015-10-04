@@ -134,7 +134,5 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
-export NETMOVE_BDK=BB3333BB11BB3333BB11BB3333BB11BB
-
 # undef stop
 stty stop undef
