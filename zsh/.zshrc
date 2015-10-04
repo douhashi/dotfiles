@@ -138,3 +138,4 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 stty stop undef
 
 # terminal setting
+export TERM=xterm-256color
