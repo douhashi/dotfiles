@@ -37,6 +37,64 @@ nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
 "noremap <C-N> :Unite -buffer-name=file file<CR>
 "noremap <C-Z> :Unite file_mru<CR>
 
+"------------------------------------
+"" Unite-rails.vim
+"------------------------------------
+""{{{
+function! UniteRailsSetting()
+  nnoremap <buffer><C-H><C-H><C-H>  :<C-U>Unite rails/view<CR>
+  nnoremap <buffer><C-H><C-H>       :<C-U>Unite rails/model<CR>
+  nnoremap <buffer><C-H>            :<C-U>Unite rails/controller<CR>
+
+  nnoremap <buffer><C-H>c           :<C-U>Unite rails/config<CR>
+  nnoremap <buffer><C-H>s           :<C-U>Unite rails/spec<CR>
+  nnoremap <buffer><C-H>m           :<C-U>Unite rails/db -input=migrate<CR>
+  nnoremap <buffer><C-H>l           :<C-U>Unite rails/lib<CR>
+  nnoremap <buffer><expr><C-H>g     ':e '.b:rails_root.'/Gemfile<CR>'
+  nnoremap <buffer><expr><C-H>r     ':e '.b:rails_root.'/config/routes.rb<CR>'
+  nnoremap <buffer><expr><C-H>se    ':e '.b:rails_root.'/db/seeds.rb<CR>'
+  nnoremap <buffer><C-H>ra          :<C-U>Unite rails/rake<CR>
+  nnoremap <buffer><C-H>h           :<C-U>Unite rails/heroku<CR>
+endfunction
+aug MyAutoCmd
+  au User Rails call UniteRailsSetting()
+aug END
+"}}}
+
+"------------------------------------
+"" vim-rails
+"------------------------------------
+"""{{{
+"有効化
+let g:rails_default_file='config/database.yml'
+let g:rails_level = 4
+let g:rails_mappings=1
+let g:rails_modelines=0
+" let g:rails_some_option = 1
+let g:rails_statusline = 1
+" let g:rails_subversion=0
+" let g:rails_syntax = 1
+" let g:rails_url='http://localhost:3000'
+" let g:rails_ctags_arguments='--languages=-javascript'
+" let g:rails_ctags_arguments = ''
+function! SetUpRailsSetting()
+  nnoremap <buffer><Space>r :R<CR>
+  nnoremap <buffer><Space>a :A<CR>
+  nnoremap <buffer><Space>m :Rmodel<Space>
+  nnoremap <buffer><Space>c :Rcontroller<Space>
+  nnoremap <buffer><Space>v :Rview<Space>
+  nnoremap <buffer><Space>p :Rpreview<CR>
+endfunction
+
+aug MyAutoCmd
+  au User Rails call SetUpRailsSetting()
+aug END
+
+aug RailsDictSetting
+  au!
+aug END
+"}}}
+"
 " statusline
 set laststatus=2
 if filereadable(expand('$HOME/.vim/.vimrc.lightline'))
@@ -60,4 +118,24 @@ nnoremap <silent><C-l> <C-w>l<CR>
 nnoremap <silent><Space> :bn<CR>
 
 " 末尾の空行削除
-autocmd BufWritePre * :%s/\s\+$//
+autocmd BufWritePre * call s:remove_line_in_last_line()
+function! s:remove_line_in_last_line()
+  if getline('$') == ""
+    $delete _
+  endif
+endfunction
+
+" syntastic
+let g:syntastic_mode_map = { 'mode': 'passive',
+      \ 'active_filetypes': ['ruby'] }
+let g:syntastic_ruby_checkers = ['rubocop']
+
+augroup AlpacaTags
+  autocmd!
+  if exists(':Tags')
+    autocmd BufWritePost Gemfile TagsBundle
+    autocmd BufEnter * TagsSet
+    " 毎回保存と同時更新する場合はコメントを外す
+    autocmd BufWritePost * TagsUpdate
+  endif
+augroup END
