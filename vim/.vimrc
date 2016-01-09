@@ -58,3 +58,6 @@ nnoremap <silent><C-l> <C-w>l<CR>
 
 " Buffer
 nnoremap <silent><Space> :bn<CR>
+
+" 末尾の空行削除
+autocmd BufWritePre * :%s/\s\+$//

@@ -139,3 +139,8 @@ stty stop undef
 
 # terminal setting
 export TERM=xterm-256color
+
+# start ssh-agent
+eval $(ssh-agent)
+ssh-add ~/.ssh/id_rsa
+ssh-add ~/.ssh/agileware_core_rsa
