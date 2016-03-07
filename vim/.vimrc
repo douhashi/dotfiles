@@ -139,3 +139,6 @@ augroup AlpacaTags
     autocmd BufWritePost * TagsUpdate
   endif
 augroup END
+
+" coffee
+au BufRead,BufNewFile,BufReadPre *.coffee   set filetype=coffee

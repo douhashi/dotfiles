@@ -31,6 +31,7 @@ NeoBundle 'basyura/unite-rails'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'tpope/vim-endwise'
 NeoBundle 'alpaca-tc/alpaca_tags'
+NeoBundle 'kchmck/vim-coffee-script'
 
 NeoBundleCheck
 call neobundle#end()

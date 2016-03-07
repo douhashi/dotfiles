@@ -144,3 +144,21 @@ export TERM=xterm-256color
 eval $(ssh-agent)
 ssh-add ~/.ssh/id_rsa
 ssh-add ~/.ssh/agileware_core_rsa
+ssh-add ~/.ssh/oncloud.pem
+ssh-add ~/.ssh/learning-encollege-production-vpc.pem
+
+# ruby settings
+alias be='bundle exec'
+alias brake='bundle exec rake'
+export PATH=~/pebble-dev/pebble-sdk-4.0.1-linux64/bin:$PATH
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+
+### AWS CLI
+source /usr/local/bin/aws_zsh_completer.sh
+complete -C aws_completer aws
+
+if [[ -s ~/.nvm/nvm.sh ]];
+  then source ~/.nvm/nvm.sh
+fi
