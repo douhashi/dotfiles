@@ -33,6 +33,8 @@ NeoBundle 'tpope/vim-endwise'
 NeoBundle 'alpaca-tc/alpaca_tags'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'mattn/emmet-vim'
+NeoBundle "elixir-lang/vim-elixir"
+NeoBundle 'fatih/vim-go'
 
 NeoBundleCheck
 call neobundle#end()

@@ -146,6 +146,7 @@ ssh-add ~/.ssh/id_rsa
 ssh-add ~/.ssh/agileware_core_rsa
 ssh-add ~/.ssh/oncloud.pem
 ssh-add ~/.ssh/learning-encollege-production-vpc.pem
+ssh-add ~/.ssh/encollege-production-vpc.pem
 
 # ruby settings
 alias be='bundle exec'
@@ -162,3 +163,6 @@ complete -C aws_completer aws
 if [[ -s ~/.nvm/nvm.sh ]];
   then source ~/.nvm/nvm.sh
 fi
+
+### go
+export GOPATH=$HOME/.go

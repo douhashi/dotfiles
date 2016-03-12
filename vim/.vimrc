@@ -11,11 +11,11 @@ set backspace=indent,eol,start
 set encoding=utf-8
 
 " NeoBundle
-if filereadable(expand('$HOME/.vim/.vimrc.neobundle')) " ファイルが読み込み可能かチェック
-  source $HOME/.vim/.vimrc.neobundle " .vimrcファイル読み込み
+if filereadable(expand('$HOME/.vim/vimrc.neobundle')) " ファイルが読み込み可能かチェック
+  source $HOME/.vim/vimrc.neobundle " .vimrcファイル読み込み
 
-  if filereadable(expand('$HOME/.vim/.vimrc.plugin'))
-    source $HOME/.vim/.vimrc.plugin
+  if filereadable(expand('$HOME/.vim/vimrc.plugin'))
+    source $HOME/.vim/vimrc.plugin
   endif
 endif
 
@@ -97,8 +97,8 @@ aug END
 "
 " statusline
 set laststatus=2
-if filereadable(expand('$HOME/.vim/.vimrc.lightline'))
-  source $HOME/.vim/.vimrc.lightline
+if filereadable(expand('$HOME/.vim/vimrc.lightline'))
+  source $HOME/.vim/vimrc.lightline
 end
 
 " NERDTree
