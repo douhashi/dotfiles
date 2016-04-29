@@ -10,14 +10,19 @@ set expandtab
 set backspace=indent,eol,start
 set encoding=utf-8
 
-" NeoBundle
-if filereadable(expand('$HOME/.vim/vimrc.neobundle')) " ファイルが読み込み可能かチェック
-  source $HOME/.vim/vimrc.neobundle " .vimrcファイル読み込み
-
-  if filereadable(expand('$HOME/.vim/vimrc.plugin'))
-    source $HOME/.vim/vimrc.plugin
-  endif
+" Dein
+if filereadable(expand('$HOME/.vim/vimrc.dein')) " ファイルが読み込み可能かチェック
+  source $HOME/.vim/vimrc.dein " .vimrcファイル読み込み
 endif
+
+" NeoBundle
+"if filereadable(expand('$HOME/.vim/vimrc.neobundle')) " ファイルが読み込み可能かチェック
+"  source $HOME/.vim/vimrc.neobundle " .vimrcファイル読み込み
+"
+"  if filereadable(expand('$HOME/.vim/vimrc.plugin'))
+"    source $HOME/.vim/vimrc.plugin
+"  endif
+"endif
 
 filetype plugin indent on
 set t_Co=256
