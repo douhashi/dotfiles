@@ -8,6 +8,7 @@ setopt auto_pushd
 setopt auto_cd
 setopt correct
 setopt cdable_vars
+setopt nonomatch
 
 ## keybind
 bindkey -v
@@ -20,6 +21,7 @@ alias vi='vim'
 alias gd='dirs -v; echo -n "select number: "; read newdir; cd +"$newdir"'
 alias screen="screen -D -R"
 alias r='rails'
+alias dt='~/.local/bin/disable_touchpad'
 
 export LSCOLORS=gxfxcxdxbxegedabagacad
 
@@ -144,13 +146,12 @@ export TERM=xterm-256color
 eval $(ssh-agent)
 ssh-add ~/.ssh/id_rsa
 ssh-add ~/.ssh/agileware_core_rsa
-ssh-add ~/.ssh/oncloud.pem
-ssh-add ~/.ssh/learning-encollege-production-vpc.pem
-ssh-add ~/.ssh/encollege-production-vpc.pem
+ssh-add ~/.ssh/agileware_deploy_rsa
 
 # ruby settings
 alias be='bundle exec'
 alias brake='bundle exec rake'
+export PATH=~/.local/bin:$PATH
 export PATH=~/pebble-dev/pebble-sdk-4.0.1-linux64/bin:$PATH
 
 ### Added by the Heroku Toolbelt
@@ -166,3 +167,15 @@ fi
 
 ### go
 export GOPATH=$HOME/.go
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+
+export GOBIN=$GOPATH/bin
+export PATH="$HOME/.go/bin:$PATH"
+
+source /usr/local/bin/virtualenvwrapper.sh
+export WORKON_HOME=~/.virtualenvs
+export PYTHONDONTWRITEBYTECODE=1
+
+export S3_ACCESS_KEY_ID=AKIAI6U43IK5SEUF3XUQ
+export S3_SECRET_ACCESS_KEY=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

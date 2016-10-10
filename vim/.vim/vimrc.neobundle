@@ -35,6 +35,7 @@ NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle "elixir-lang/vim-elixir"
 NeoBundle 'fatih/vim-go'
+NeoBundle 'hashivim/vim-terraform'
 
 NeoBundleCheck
 call neobundle#end()
