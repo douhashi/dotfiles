@@ -167,15 +167,9 @@ fi
 
 ### go
 export GOPATH=$HOME/.go
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
 
 export GOBIN=$GOPATH/bin
 export PATH="$HOME/.go/bin:$PATH"
-
-source /usr/local/bin/virtualenvwrapper.sh
-export WORKON_HOME=~/.virtualenvs
-export PYTHONDONTWRITEBYTECODE=1
 
 export S3_ACCESS_KEY_ID=AKIAI6U43IK5SEUF3XUQ
 export S3_SECRET_ACCESS_KEY=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
