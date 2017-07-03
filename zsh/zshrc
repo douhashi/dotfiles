@@ -173,3 +173,5 @@ export PATH="$HOME/.go/bin:$PATH"
 
 export S3_ACCESS_KEY_ID=AKIAI6U43IK5SEUF3XUQ
 export S3_SECRET_ACCESS_KEY=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
+export PATH="$HOME/.anyenv/bin:$PATH"
+eval "$(anyenv init -)"
