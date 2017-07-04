@@ -9,6 +9,8 @@ set shiftwidth=2
 set expandtab
 set backspace=indent,eol,start
 set encoding=utf-8
+set nobackup
+set noswapfile
 
 " Dein
 if filereadable(expand('$HOME/.vim/vimrc.dein')) " ファイルが読み込み可能かチェック
