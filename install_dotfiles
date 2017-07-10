@@ -13,3 +13,6 @@ ln -sf $WORKING_DIR/vim/vim ~/.vim
 
 echo "installing tmux dotfiles"
 ln -sf $WORKING_DIR/tmux/tmux.conf ~/.tmux.conf
+
+echo "installing maid dotfiles"
+ln -sf $WORKING_DIR/maid ~/.maid
