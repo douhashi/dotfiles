@@ -4,15 +4,20 @@ WORKING_DIR=`pwd`
 echo "Start install dotfiles..."
 
 echo "installing zsh dotfiles"
+rm -rf ~/.zshrc
+rm -rf ~/.zsh
 ln -sf $WORKING_DIR/zsh/zshrc ~/.zshrc
 ln -sf $WORKING_DIR/zsh/zsh ~/.zsh
 
 echo "installing vim dotfiles"
+rm -rf ~/.vim
 ln -sf $WORKING_DIR/vim/vimrc ~/.vimrc
 ln -sf $WORKING_DIR/vim/vim ~/.vim
 
 echo "installing tmux dotfiles"
+rm -rf ~/.tmux.conf
 ln -sf $WORKING_DIR/tmux/tmux.conf ~/.tmux.conf
 
 echo "installing maid dotfiles"
+rm -rf ~/.maid
 ln -sf $WORKING_DIR/maid ~/.maid
