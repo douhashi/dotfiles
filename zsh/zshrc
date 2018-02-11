@@ -21,7 +21,7 @@ alias vi='vim'
 alias gd='dirs -v; echo -n "select number: "; read newdir; cd +"$newdir"'
 alias screen="screen -D -R"
 alias r='rails'
-alias dt='~/.local/bin/disable_touchpad'
+alias dco='docker-compose'
 
 export LSCOLORS=gxfxcxdxbxegedabagacad
 
