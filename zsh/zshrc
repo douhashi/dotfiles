@@ -139,6 +139,19 @@ ssh-add ~/.ssh/id_rsa
 ssh-add ~/.ssh/agileware_core_rsa
 ssh-add ~/.ssh/agileware_deploy_rsa
 
+# suggest ssh host
+
+complete-ssh-host() {
+  local host="$(command egrep -i '^Host\s+.+' $HOME/.ssh/config $(find $HOME/.ssh/hosts -type f 2>/dev/null) | command egrep -v '[*?]' | awk '{print $2}' | sort | fzf)"
+
+  if [ ! -z "$host" ]; then
+    LBUFFER+="$host"
+  fi
+  zle reset-prompt
+}
+zle -N complete-ssh-host
+bindkey '^s^s' complete-ssh-host
+
 # local bin
 export PATH=~/.local/bin:$PATH
 
