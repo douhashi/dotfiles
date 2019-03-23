@@ -27,5 +27,6 @@ call dein#add('mattn/emmet-vim')
 call dein#add("elixir-lang/vim-elixir")
 call dein#add('fatih/vim-go')
 call dein#add('hashivim/vim-terraform')
+call dein#add('prettier/vim-prettier')
 
 call dein#end()

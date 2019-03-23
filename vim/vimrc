@@ -124,18 +124,22 @@ nnoremap <silent><C-l> <C-w>l<CR>
 " Buffer
 nnoremap <silent><Space> :bn<CR>
 
-" 末尾の空行削除
-autocmd BufWritePre * call s:remove_line_in_last_line()
-function! s:remove_line_in_last_line()
-  if getline('$') == ""
-    $delete _
-  endif
-endfunction
-
 " syntastic
-let g:syntastic_mode_map = { 'mode': 'passive',
-      \ 'active_filetypes': ['ruby'] }
-let g:syntastic_ruby_checkers = ['rubocop']
+"let g:syntastic_mode_map = { 'mode': 'passive',
+"      \ 'active_filetypes': ['ruby', 'javascript'] }
+"let g:syntastic_ruby_checkers = ['rubocop']
+"let g:syntastic_javascript_checkers = ['eslint']
+
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"nnoremap <C-C> :w<CR>:SyntasticCheck<CR>
+
+" prettier
+let g:prettier#autoformat = 0
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.vue,*.yaml,*.html Prettier
 
 augroup AlpacaTags
   autocmd!
