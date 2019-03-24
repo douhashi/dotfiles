@@ -1,3 +1,4 @@
+" General Settings
 set nocompatible
 set number
 set title
@@ -12,24 +13,47 @@ set encoding=utf-8
 set nobackup
 set noswapfile
 
+filetype plugin indent on
+set t_Co=256
+syntax on
+colorscheme jellybeans
+
 " Dein
 if filereadable(expand('$HOME/.vim/vimrc.dein')) " ファイルが読み込み可能かチェック
   source $HOME/.vim/vimrc.dein " .vimrcファイル読み込み
 endif
 
-" NeoBundle
-"if filereadable(expand('$HOME/.vim/vimrc.neobundle')) " ファイルが読み込み可能かチェック
-"  source $HOME/.vim/vimrc.neobundle " .vimrcファイル読み込み
-"
-"  if filereadable(expand('$HOME/.vim/vimrc.plugin'))
-"    source $HOME/.vim/vimrc.plugin
-"  endif
-"endif
+" vim-tags
+let g:vim_tags_project_tags_command = "/usr/bin/ctags -f .tags -R . 2>/dev/null"
+let g:vim_tags_gems_tags_command = "/usr/bin/ctags -R -f .Gemfile.lock.tags `bundle show --paths` 2>/dev/null"
+set tags+=.tags
+set tags+=.Gemfile.lock.tags
 
-filetype plugin indent on
-set t_Co=256
-syntax on
-colorscheme jellybeans
+" statusline
+set laststatus=2
+if filereadable(expand('$HOME/.vim/vimrc.lightline'))
+  source $HOME/.vim/vimrc.lightline
+end
+
+" NERDTree
+nnoremap <silent><C-e> :NERDTreeTabsToggle<CR>
+let NERDTreeQuitOnOpen=1
+
+" Split Window
+nnoremap <silent><C-s>s :split<CR>
+nnoremap <silent><C-s><C-s> :split<CR>
+nnoremap <silent><C-s>v :vsplit<CR>
+nnoremap <silent><C-h> <C-w>h<CR>
+nnoremap <silent><C-j> <C-w>j<CR>
+nnoremap <silent><C-k> <C-w>k<CR>
+nnoremap <silent><C-l> <C-w>l<CR>
+
+" Buffer
+nnoremap <silent><Space> :bn<CR>
+
+" prettier
+let g:prettier#autoformat = 0
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.vue,*.yaml,*.html Prettier
 
 " Unite
 let g:unite_enable_start_insert=1
@@ -73,83 +97,33 @@ aug END
 "------------------------------------
 """{{{
 "有効化
-let g:rails_default_file='config/database.yml'
-let g:rails_level = 4
-let g:rails_mappings=1
-let g:rails_modelines=0
+" let g:rails_default_file='config/database.yml'
+" let g:rails_level = 4
+" let g:rails_mappings=1
+" let g:rails_modelines=0
 " let g:rails_some_option = 1
-let g:rails_statusline = 1
+" let g:rails_statusline = 1
 " let g:rails_subversion=0
 " let g:rails_syntax = 1
 " let g:rails_url='http://localhost:3000'
 " let g:rails_ctags_arguments='--languages=-javascript'
 " let g:rails_ctags_arguments = ''
-function! SetUpRailsSetting()
-  nnoremap <buffer><Space>r :R<CR>
-  nnoremap <buffer><Space>a :A<CR>
-  nnoremap <buffer><Space>m :Rmodel<Space>
-  nnoremap <buffer><Space>c :Rcontroller<Space>
-  nnoremap <buffer><Space>v :Rview<Space>
-  nnoremap <buffer><Space>p :Rpreview<CR>
-endfunction
-
-aug MyAutoCmd
-  au User Rails call SetUpRailsSetting()
-aug END
-
-aug RailsDictSetting
-  au!
-aug END
+" function! SetUpRailsSetting()
+"   nnoremap <buffer><Space>r :R<CR>
+"   nnoremap <buffer><Space>a :A<CR>
+"   nnoremap <buffer><Space>m :Rmodel<Space>
+"   nnoremap <buffer><Space>c :Rcontroller<Space>
+"   nnoremap <buffer><Space>v :Rview<Space>
+"   nnoremap <buffer><Space>p :Rpreview<CR>
+" endfunction
+" 
+" aug MyAutoCmd
+"   au User Rails call SetUpRailsSetting()
+" aug END
+" 
+" aug RailsDictSetting
+"   au!
+" aug END
 "}}}
 "
-" statusline
-set laststatus=2
-if filereadable(expand('$HOME/.vim/vimrc.lightline'))
-  source $HOME/.vim/vimrc.lightline
-end
 
-" NERDTree
-nnoremap <silent><C-e> :NERDTreeTabsToggle<CR>
-let NERDTreeQuitOnOpen=1
-
-" Split Window
-nnoremap <silent><C-s>s :split<CR>
-nnoremap <silent><C-s><C-s> :split<CR>
-nnoremap <silent><C-s>v :vsplit<CR>
-nnoremap <silent><C-h> <C-w>h<CR>
-nnoremap <silent><C-j> <C-w>j<CR>
-nnoremap <silent><C-k> <C-w>k<CR>
-nnoremap <silent><C-l> <C-w>l<CR>
-
-" Buffer
-nnoremap <silent><Space> :bn<CR>
-
-" syntastic
-"let g:syntastic_mode_map = { 'mode': 'passive',
-"      \ 'active_filetypes': ['ruby', 'javascript'] }
-"let g:syntastic_ruby_checkers = ['rubocop']
-"let g:syntastic_javascript_checkers = ['eslint']
-
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-"nnoremap <C-C> :w<CR>:SyntasticCheck<CR>
-
-" prettier
-let g:prettier#autoformat = 0
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.vue,*.yaml,*.html Prettier
-
-augroup AlpacaTags
-  autocmd!
-  if exists(':Tags')
-    autocmd BufWritePost Gemfile TagsBundle
-    autocmd BufEnter * TagsSet
-    " 毎回保存と同時更新する場合はコメントを外す
-    autocmd BufWritePost * TagsUpdate
-  endif
-augroup END
-
-" coffee
-au BufRead,BufNewFile,BufReadPre *.coffee   set filetype=coffee
