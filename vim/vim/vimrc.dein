@@ -29,6 +29,6 @@ call dein#add('fatih/vim-go')
 call dein#add('hashivim/vim-terraform')
 call dein#add('prettier/vim-prettier')
 call dein#add('szw/vim-tags')
-
+call dein#add('miyakogi/seiya.vim')
 
 call dein#end()

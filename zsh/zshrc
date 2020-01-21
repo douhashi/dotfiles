@@ -126,7 +126,7 @@ bindkey '^s^s' complete-ssh-host
 export PATH=~/.local/bin:$PATH
 
 ### AWS CLI ########################################################
-source /usr/local/bin/aws_zsh_completer.sh
+source /usr/bin/aws_zsh_completer.sh
 complete -C aws_completer aws
 
 ### go #############################################################
