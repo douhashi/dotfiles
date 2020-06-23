@@ -21,3 +21,7 @@ ln -sf $WORKING_DIR/tmux/tmux.conf ~/.tmux.conf
 echo "installing maid dotfiles"
 rm -rf ~/.maid
 ln -sf $WORKING_DIR/maid ~/.maid
+
+echo "installing alacritty dotfiles"
+rm -rf ~/.alacritty.yml
+ln -sf $WORKING_DIR/alacritty/alacritty.yml ~/.alacritty.yml
